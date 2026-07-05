@@ -3,91 +3,119 @@
   --font-heading: 'Montserrat', Arial, sans-serif;
   --font-body: 'Inter', Arial, sans-serif;
 
-  --color-accent: #d4d900;       
+  --color-accent: #d4d900;
   --color-text: #000000;
   --color-bg: #ffffff;
+  --color-muted: #4a4a4a;
+  --color-border: rgba(0, 0, 0, 0.08);
 
-  --border-radius-card: 8px;
+  --border-radius-card: 10px;
   --border-radius-btn: 50px;
   --spacing-section: 36px;
+  --page-max-width: 1120px;
 }
 
 /* ==================== BASE STYLES ==================== */
+*
+{
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  padding: 16px;
+  min-height: 100vh;
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
 }
 
+.page {
+  width: min(100%, var(--page-max-width));
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
 ul {
   margin: 0;
-  padding-left: 16px;
-  font-family: var(--font-body);
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.6rem;
 }
 
 /* ==================== HEADER ==================== */
 .header {
   text-align: center;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .school-name {
   text-align: left;
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
 }
 
 .main-title {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 4px;
   font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 0.5rem;
 }
 
 .year {
   font-family: var(--font-heading);
-  font-size: 38px;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--color-accent);
-  line-height: 1;
- 
-  
+  margin: 0 0 0.75rem;
 }
 
 .tagline {
-  font-size: 13px;
-  margin-bottom: 12px;
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem;
+  color: var(--color-muted);
 }
 
 /* ==================== CALL BUTTON ==================== */
-
 .btn-call {
-  display: inline-block;
-  padding: 6px 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2rem;
   background-color: var(--color-accent);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   text-decoration: none;
   border-radius: var(--border-radius-btn);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-call:hover,
+.btn-call:focus-visible {
+  background-color: #c7c203;
+  transform: translateY(-1px);
 }
 
 /* ==================== SECTION TITLES ==================== */
 .section-title {
   font-family: var(--font-heading);
-  font-size: 26px;
+  font-size: 1.75rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 8px;
+  margin: 0 0 0.75rem;
 }
 
 .section-title--left {
@@ -95,70 +123,73 @@ ul {
 }
 
 .section-subtitle {
-  font-size: 13px;
+  font-size: 0.95rem;
   text-align: left;
-  margin-bottom: 20px;
+  margin: 0 0 1.2rem;
+  color: var(--color-muted);
 }
 
 .section-note {
-  font-size: 13px;
+  font-size: 0.95rem;
   text-align: center;
-  margin-top: 18px;
-  margin-bottom: 12px;
+  margin: 1.5rem 0 0;
+  color: var(--color-muted);
 }
 
 .section-note--left {
   text-align: left;
 }
 
-/* ==================== CARD GRID (3 columns) ==================== */
+/* ==================== CARD GRID ==================== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  padding: 10px 15px;
-  
-
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
 }
 
 .card {
   border: 1px solid var(--color-accent);
   border-radius: var(--border-radius-card);
-  padding: 12px 14px;
+  padding: 1.2rem;
+  background-color: #ffffff;
 }
 
 .card h2 {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
-.card ul,
-.card p {
-  font-family: var(--font-body);
-  font-size: 20px;
+.card p,
+.card ul {
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.45;
-  list-style: none;
-  margin-top: 20px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.card ul {
+  list-style: disc inside;
+}
+
+.requirements-list li {
+  margin-bottom: 0.75rem;
 }
 
 /* ==================== FEES SECTION ==================== */
-
 .fee-amount {
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0;
+  margin: 0;
+  color: var(--color-text);
 }
 
 /* ==================== SECTION SPACING ==================== */
-.info-section {
-  margin-bottom: var(--spacing-section);
-}
-
+.info-section,
 .registration-section,
 .fees-section,
 .payment-section {
@@ -170,52 +201,61 @@ ul {
   text-align: center;
 }
 
+.payment-section .section-title,
+.payment-section .payment-intro {
+  text-align: center;
+}
+
 /* ==================== PAYMENT / BANK LOGOS ==================== */
+
 .payment-intro {
-  font-size: 13px;
-  text-align: left;
-  margin-bottom: 16px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-muted);
 }
 
 .bank-logos {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15rem;
+  margin-bottom: 1.5rem;
 }
 
 .bank-logo {
-  max-height: 110px;
+  max-height: 80px;
   width: auto;
   object-fit: contain;
-  
 }
 
 /* ==================== RESPONSIVE ==================== */
+
 @media (max-width: 700px) {
   .page {
-    padding: 20px 16px;
-    border-width: 6px;
+    padding: 20px 14px;
   }
 
-  .card-grid {
-    grid-template-columns: 1fr;
+  .header {
+    padding-bottom: 22px;
   }
 
-  .bank-logos {
-    flex-direction: column;
+  .school-name {
+    font-size: 1rem;
   }
 
   .main-title {
-    font-size: 30px;
+    font-size: 2.25rem;
   }
 
   .year {
-    font-size: 28px;
+    font-size: 2rem;
   }
 
   .section-title {
-    font-size: 22px;
+    font-size: 1.5rem;
+  }
+
+  .btn-call {
+    width: 100%;
   }
 }
