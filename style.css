@@ -140,6 +140,7 @@ li {
   text-align: left;
 }
 
+
 /* ==================== CARD GRID ==================== */
 .card-grid {
   display: grid;
@@ -181,11 +182,11 @@ li {
 
 /* ==================== FEES SECTION ==================== */
 .fee-amount {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
   margin: 0;
-  color: var(--color-text);
+  color: var(--color-text); 
 }
 
 /* ==================== SECTION SPACING ==================== */
@@ -223,7 +224,7 @@ li {
 }
 
 .bank-logo {
-  max-height: 80px;
+  max-height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -256,6 +257,6 @@ li {
   }
 
   .btn-call {
-    width: 100%;
+    width: 50%;
   }
 }
